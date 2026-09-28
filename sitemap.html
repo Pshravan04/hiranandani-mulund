@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sitemap - Rocksside Powai</title>
+    <meta name="description"
+        content="Sitemap for Rocksside Powai. Navigate through the overview, highlights, pricing, floor plans, amenities, gallery, location advantages, and privacy policy pages." />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary: #9F801B;
+            --primary-light: #FFDB70;
+            --dark: #121212;
+            --light: #F9F6F0;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --border: rgba(159, 128, 27, 0.15);
+            --text-dark: #2A2A2A;
+            --text-light: #6E6E6E;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 248, 220, 0.3) 0%, rgba(255, 255, 255, 1) 90%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Ambient glowing backgrounds */
+        .ambient-glow-1 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 219, 112, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+            top: -100px;
+            left: -100px;
+            z-index: -1;
+            filter: blur(50px);
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(159, 128, 27, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+            bottom: -150px;
+            right: -100px;
+            z-index: -1;
+            filter: blur(60px);
+        }
+
+        header {
+            padding: 50px 20px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.05));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #7A6214, #B89930);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .sitemap-container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(159, 128, 27, 0.06);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light), var(--primary));
+        }
+
+        .sitemap-section h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(159, 128, 27, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sitemap-list {
+            list-style: none;
+        }
+
+        .sitemap-item {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .sitemap-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: bold;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .sitemap-item:hover {
+            transform: translateX(4px);
+        }
+
+        .sitemap-item:hover::before {
+            transform: translateX(2px);
+            color: var(--primary);
+        }
+
+        .sitemap-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .sitemap-link:hover {
+            color: var(--primary);
+        }
+
+        .sitemap-link span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: block;
+            margin-top: 2px;
+        }
+
+        .home-btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary), #856913);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(159, 128, 27, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(159, 128, 27, 0.3);
+            background: linear-gradient(135deg, #a88820, var(--primary));
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid var(--border);
+            padding: 30px 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .glass-card {
+                padding: 25px;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <div>
+        <header>
+            <img src="assets/images/logo/logo.png" alt="Rocksside Logo" class="logo" />
+            <h1 id="sitemap-heading">Sitemap</h1>
+            <p class="subtitle">Complete map of all sections and pages of Rocksside At Powai By Reputed Developer
+                website.</p>
+        </header>
+
+        <div class="sitemap-container">
+            <div class="glass-card">
+                <div class="sitemap-section">
+                    <h2>🏠 Home Sections</h2>
+                    <ul class="sitemap-list">
+                        <li class="sitemap-item">
+                            <a id="link-home" class="sitemap-link" href="index.html#home">Home Page<span>Welcome and
+                                    pre-launch overview</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-highlights" class="sitemap-link"
+                                href="index.html#highlights">Highlights<span>Key features and project
+                                    configuration</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-overview" class="sitemap-link" href="index.html#overview">About /
+                                Overview<span>In-depth info about Rocksside Powai</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-pricing" class="sitemap-link" href="index.html#pricing">Pricing & Area<span>Unit
+                                    types, carpet area, and starting price</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-floor-plan" class="sitemap-link" href="index.html#floor-plan">Floor
+                                Plans<span>Master plan and unit layouts</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-amenities" class="sitemap-link"
+                                href="index.html#amenities">Amenities<span>Luxurious lifestyle amenities</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-gallery" class="sitemap-link" href="index.html#gallery">Project
+                                Gallery<span>High-quality elevation and interior images</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-connectivity" class="sitemap-link" href="index.html#connectivity">Location
+                                Advantage<span>Google map integration and connectivity advantages</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-contact" class="sitemap-link" href="index.html#contact">Schedule Site
+                                Visit<span>Site visit registration and contact options</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sitemap-section">
+                    <h2>⚖️ Legal & Pages</h2>
+                    <ul class="sitemap-list">
+                        <li class="sitemap-item">
+                            <a id="link-privacy" class="sitemap-link" href="Privacy-Policy.html">Privacy
+                                Policy<span>Your privacy protection terms and guidelines</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-terms" class="sitemap-link" href="Terms.php">Terms of Use<span>Disclaimer and
+                                    conditions for using the website</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-thankyou" class="sitemap-link" href="thankyou.html">Thank You
+                                Page<span>Submission verification confirmation page</span></a>
+                        </li>
+                        <li class="sitemap-item">
+                            <a id="link-xml" class="sitemap-link" href="sitemap.xml">XML Sitemap<span>Sitemap formatted
+                                    for search engines (XML)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="home-btn-container">
+                <a id="btn-back-home" href="index.html" class="home-btn">
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Rocksside Powai. All rights reserved.
+    </footer>
+</body>
+
+</html>
