@@ -1,8 +1,8 @@
 .theme{
-    --Primary-color:#F9AE1A;
+    --Primary-color:#702828;
     --Secondary-color: #000000;
-    --button-color:#F9AE1A;
-    --button-hover-color: #F9AE1A;
+    --button-color:#646665;
+    --button-hover-color: #646665;
     --button-text-color: #fff;
     --button-text-hover-color: #fff;
 }
